@@ -1,5 +1,7 @@
 package app.api.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +22,11 @@ public class EmpApiController {
 	@GetMapping("/api/emp-test")
 	public String empTest() {
 		return "emp api controller" ;
+	}
+	
+	@GetMapping("/api/emps")
+	public List<Emp> getEmps() {
+		return empRepository.findAll();
 	}
 
     	@Autowired
